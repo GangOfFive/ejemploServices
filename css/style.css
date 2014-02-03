@@ -1,0 +1,40 @@
+.buttons button {
+    font-size: 1.5em;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    max-width: 600px;
+    font-family: sans-serif;
+    margin: 0 auto;
+    color: #000;
+}
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    margin: .5em 0;
+    padding: 0;
+}
+.feed {
+    background: #f0f0f0;
+    color: #333;
+    padding: .5em;
+    margin: 1em 0;
+}
+.feed img {
+    float: left;
+    clear: left;
+    width: 10%;
+}
+.feed p {
+    float: left;
+    width: 87%;
+    margin-left: 2%;
+}
+
+.feed:after {
+  content: "";
+  display: table;
+  clear: both;
+}
