@@ -1,7 +1,7 @@
 angular.module('testApp.controllers', [
     'testApp.services'
 ])
-.controller('FeedCtrl', function ($scope, $timeout, githubService, sayHelloService) {
+.controller('FeedCtrl', function ($scope, githubService, sayHelloService) {
     $scope.users = ['KaeruCT', 'leopic', 'pfallasro', 'haden9', 'frivera1984'];
 
     $scope.viewUserEvents = function (user) {
