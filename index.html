@@ -12,6 +12,33 @@
     <script src="js/services.js"></script>
 </head>
 <body>
-    <div ng-view></div>
+    <h1 class="title" ng-controller="TitleCtrl">
+        {{value}}: {{constant}}
+    </h1>
+
+    <div class="feed-container" ng-controller="FeedCtrl">
+        <div class="buttons" >
+            <button
+                ng-disabled="user == currentUser"
+                ng-repeat="user in users"
+                ng-click="viewUserEvents(user)">
+                    {{user}}
+                </button>
+        </div>
+
+        <div class="feed" ng-repeat="event in events" ng-show="event.payload.comment.body">
+            <h4>{{event.type}}</h4>
+            <img ng-src="{{event.actor.avatar_url}}">
+            <p>{{event.payload.comment.body}}</p>
+        </div>
+    </div>
+
+    <div ng-style="style" class="history-container" ng-controller="HistoryCtrl">
+        <h1>History</h1>
+        <div class="history" ng-repeat="entry in history">
+            <h4>{{entry.title}}</h4>
+            <p>{{entry.date | date:'medium'}}</p>
+        </div>
+    </div>
 </body>
 </html>

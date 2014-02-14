@@ -1,26 +1,39 @@
 .buttons button {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 html, body {
     margin: 0;
     padding: 0;
 }
 body {
-    max-width: 600px;
+    max-width: 800px;
     font-family: sans-serif;
-    margin: 0 auto;
+    margin: 2em auto 0 auto;
     color: #000;
 }
 h1, h2, h3, h4, h5, h6 {
     clear: both;
-    margin: .5em 0;
+    margin: 0;
     padding: 0;
+}
+.title {
+    margin: 1em 0;
+    border-bottom: #bbb 2px dashed;
+}
+.feed-container {
+    width: 74%;
+    float: left;
+}
+.history-container {
+    float: left;
+    width: 25%;
+
 }
 .feed {
     background: #f0f0f0;
     color: #333;
     padding: .5em;
-    margin: 1em 0;
+    margin: 1em;
 }
 .feed img {
     float: left;
@@ -31,6 +44,11 @@ h1, h2, h3, h4, h5, h6 {
     float: left;
     width: 87%;
     margin-left: 2%;
+}
+
+.history {
+    font-size: .9em;
+    margin: .5em 1em;
 }
 
 .feed:after {

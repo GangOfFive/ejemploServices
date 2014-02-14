@@ -1,29 +1,57 @@
 angular.module('testApp.services', [
     'ngResource'
 ])
-/* example of a custom service with factory using angular's $http service */
+
+// value: define un valor
+.value('valueExample', 'Proyecto 2')
+
+// constant: define un valor constante
+.constant('constantExample', 'Angular Example')
+
+.value('valueExample', 'Proyecto 3') // modifica "valueExample"
+.value('constantExample', 'kamehameha') // no funciona
+
+// service: funcion que angular llama como un constructor => new historyService()
+.service('historyService', function () {
+    this.history = [];
+    this.add = function (entry) {
+        this.history.unshift(entry);
+    };
+})
+
+// factory: retorna un objeto
 .factory('githubService', function ($http) {
-    var githubUser,
-        doRequest = function(path) {
+    var github = function (op) {
+        return function () {
             return $http({
                 method: 'JSONP',
                 cache: true,
-                url: 'https://api.github.com/users/' + githubUser + '/' + path + '?callback=JSON_CALLBACK'
+                url: 'https://api.github.com/users/' + githubUser + '/' + op + '?callback=JSON_CALLBACK'
             });
-        };
+        }
+    }, githubUser;
 
     return {
+        getEvents: github('events'),
         setUser: function (user) {
             githubUser = user;
-        },
-        events: function() {
-            return doRequest('events');
         }
     };
 })
 
-.service('sayHelloService', function () {
-    this.sayHello = function (name) {
-        return 'Hello, ' + name;
+// provider: se puede configurar en app.config
+.provider('style' /* no poner "Provider */, function () {
+    var styles = {};
+
+    this.setStyles = function (s) {
+        styles = s;
     };
-});
+
+    this.$get = function () {
+        return {
+            getStyles: function () {
+                return styles;
+            }
+        }
+    };
+})

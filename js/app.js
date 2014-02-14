@@ -1,12 +1,12 @@
 angular.module('testApp', [
-    'ngRoute',
-    'testApp.controllers',
-    'testApp.services'
+    'testApp.services',
+    'testApp.controllers'
 ])
-.config(function ($routeProvider) {
-    $routeProvider
-    .when('/', {
-        templateUrl: 'partials/feed.html',
-        controller: 'FeedCtrl'
+.config(function (styleProvider) {
+    styleProvider.setStyles({
+        history: {
+            border: "#aaa 2px dashed",
+            background: "#eee"
+        }
     });
 });
